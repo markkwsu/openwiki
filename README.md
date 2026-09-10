@@ -118,7 +118,8 @@ openwiki integrations install bob
 > IBM Bob support is not yet in the official `openwiki` npm release. Install the community fork first:
 >
 > ```sh
-> npm install -g github:markkwsu/openwiki
+> npm install --prefix ~/.openwiki-fork github:markkwsu/openwiki
+> export PATH="$HOME/.openwiki-fork/bin:$PATH"   # add to ~/.zshrc or ~/.bashrc to make permanent
 > openwiki integrations install bob
 > ```
 
