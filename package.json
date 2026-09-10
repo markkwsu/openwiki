@@ -51,7 +51,6 @@
     "lint:check": "eslint .",
     "postbuild": "node -e \"require('fs').chmodSync('dist/cli/cli.js', 0o755)\"",
     "prebuild": "pnpm run clean",
-    "prepare": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\" && npx tsc -p tsconfig.json && npx tsc -p tsconfig.client.json && node scripts/copy-visualize-assets.cjs && node -e \"require('fs').chmodSync('dist/cli/cli.js', 0o755)\"",
     "prepack": "pnpm run build",
     "release": "pnpm run stamp:channel && pnpm run build && changeset publish",
     "stamp:channel": "node scripts/stamp-build-channel.cjs",

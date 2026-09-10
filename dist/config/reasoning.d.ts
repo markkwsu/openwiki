@@ -1,0 +1,15 @@
+import { type OpenWikiProvider } from "./constants.js";
+export declare const REASONING_EFFORT_VALUES: readonly ["none", "low", "medium", "high", "xhigh", "max"];
+export type ReasoningEffort = (typeof REASONING_EFFORT_VALUES)[number];
+export type ReasoningTransport = "responses-reasoning" | "chat-completions-reasoning-effort";
+export type ReasoningCapability = {
+    transport: ReasoningTransport;
+    values: readonly ReasoningEffort[];
+};
+export type ResolvedReasoningConfig = {
+    effort: ReasoningEffort;
+    transport: ReasoningTransport;
+};
+export declare function getReasoningCapability(provider: OpenWikiProvider, modelId: string): ReasoningCapability | undefined;
+export declare function isReasoningEffort(value: string): value is ReasoningEffort;
+export declare function resolveReasoningConfig(provider: OpenWikiProvider, modelId: string, env?: NodeJS.ProcessEnv): ResolvedReasoningConfig | undefined;
