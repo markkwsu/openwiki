@@ -115,13 +115,32 @@ openwiki integrations install bob
 ```
 
 > [!NOTE]
-> IBM Bob support is not yet in the official `openwiki` npm release. Install the community fork first:
+> IBM Bob support is not yet in the official `openwiki` npm release. It ships in
+> [`markkwsu/openwiki`](https://github.com/markkwsu/openwiki), an unofficial community fork that is not
+> maintained by LangChain. Install it from the pinned release asset:
 >
 > ```sh
-> npm install --prefix ~/.openwiki-fork github:markkwsu/openwiki
-> export PATH="$HOME/.openwiki-fork/bin:$PATH"   # add to ~/.zshrc or ~/.bashrc to make permanent
+> npm install -g https://github.com/markkwsu/openwiki/releases/download/v0.5.1-bob/openwiki-0.5.1.tgz
 > openwiki integrations install bob
 > ```
+>
+> This takes over `openwiki` on your PATH, shadowing the official package. Once Bob support lands
+> upstream, switch back with:
+>
+> ```sh
+> npm uninstall -g openwiki && npm install -g openwiki
+> ```
+>
+> Prefer building from a clone? That works too, and needs no toolchain beyond npm:
+>
+> ```sh
+> git clone https://github.com/markkwsu/openwiki.git
+> cd openwiki && npm pack && npm install -g ./openwiki-0.5.1.tgz
+> ```
+>
+> Do **not** install with `npm install -g github:markkwsu/openwiki`. On that code path npm extracts the
+> git tarball over the package directory while dependencies are still being written into it, corrupting
+> the tree and failing with a misleading `spawn sh ENOENT` on `better-sqlite3`.
 
 The supported targets are **Codex**, **Claude Code**, **OpenCode**, **Cursor**, and **IBM Bob**. All install at user level by default, so one installation works from any Git repository. Project paths are resolved to their Git repository root. User-level OpenCode integrations live under `~/.config/opencode`, OpenCode's global configuration directory on every supported platform; IBM Bob integrations live under `~/.bob/settings`. Restart the coding agent after installation, open the repository, and ask:
 
