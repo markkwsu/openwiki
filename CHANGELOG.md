@@ -1,5 +1,11 @@
 # openwiki
 
+## 0.5.2
+
+### Minor Changes
+
+- feat: add IBM Bob as a supported host integration target (`openwiki integrations install bob`), writing the skill to `.bob/skills/openwiki` and the MCP server entry to `.bob/mcp.json` (project) or `.bob/settings/mcp.json` (user).
+
 ## 0.5.1
 
 ### Patch Changes

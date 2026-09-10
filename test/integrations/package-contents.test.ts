@@ -54,6 +54,7 @@ describe("published host integration bundle", () => {
           (file) =>
             file.endsWith("/.openwiki-install.json") ||
             file.startsWith(".agents/") ||
+            file.startsWith(".bob/") ||
             file.startsWith(".claude/") ||
             file.startsWith(".codex/") ||
             file.startsWith(".opencode/") ||

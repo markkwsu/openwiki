@@ -76,6 +76,20 @@ export const HOST_TARGETS = {
     },
     documentationUrl: "https://cursor.com/docs/mcp",
   },
+  bob: {
+    id: "bob",
+    displayName: "IBM Bob",
+    producerActor: "bob",
+    user: {
+      skillDirectory: ".bob/skills/openwiki",
+      mcpConfig: { kind: "json", relativePath: ".bob/settings/mcp.json" },
+    },
+    project: {
+      skillDirectory: ".bob/skills/openwiki",
+      mcpConfig: { kind: "json", relativePath: ".bob/mcp.json" },
+    },
+    documentationUrl: "https://www.ibm.com/docs/bob/mcp",
+  },
 } as const satisfies Record<HostTargetId, HostTarget>;
 
 /**
