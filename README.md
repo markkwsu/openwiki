@@ -114,6 +114,14 @@ openwiki integrations install cursor
 openwiki integrations install bob
 ```
 
+> [!NOTE]
+> IBM Bob support is not yet in the official `openwiki` npm release. Install the community fork first:
+>
+> ```sh
+> npm install -g github:markkwsu/openwiki
+> openwiki integrations install bob
+> ```
+
 The supported targets are **Codex**, **Claude Code**, **OpenCode**, **Cursor**, and **IBM Bob**. All install at user level by default, so one installation works from any Git repository. Project paths are resolved to their Git repository root. User-level OpenCode integrations live under `~/.config/opencode`, OpenCode's global configuration directory on every supported platform; IBM Bob integrations live under `~/.bob/settings`. Restart the coding agent after installation, open the repository, and ask:
 
 ```text
